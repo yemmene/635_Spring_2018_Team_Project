@@ -7,13 +7,13 @@
 import java.util.Scanner;
 
 public class TRL_App {
-	private static Worker pStore;
+	private static PatronList pStore;
 	private static CopyStore cStore;
 	private static Manage coManage;
 
 	public static void main(String[] args) {
 
-		pStore = new Worker();
+		pStore = new PatronList();
 		cStore = new CopyStore();
 		coManage = new Manage(pStore, cStore);
 		System.out.println("Welcome...... ");
@@ -42,6 +42,7 @@ public class TRL_App {
 	}
 
 	private static void doCheckOut() {
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter Patron's ID OR 1 to cancel transaction ");
 		String PID = scan.next();

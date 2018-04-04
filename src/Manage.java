@@ -2,16 +2,16 @@ import java.util.ArrayList;
 
 public class Manage 
 {	
-	private Worker Worker= new Worker();
+	private PatronList PatronList= new PatronList();
 	private CopyStore copyStore= new CopyStore();
 	private DueDate dueDate= new DueDate();
 	private Patron Patron;
 	private Copy copy;
 	private ArrayList <Copy> copiesEntered;
  	
-	Manage (Worker ps, CopyStore cs)
+	Manage (PatronList ps, CopyStore cs)
 	{
-		Worker= ps;
+		PatronList= ps;
 		copyStore= cs;
 		copiesEntered= new ArrayList <Copy>();  
 	}
@@ -19,7 +19,7 @@ public class Manage
 	public Patron startNewTransaction (String PID)
 	{
 		copiesEntered.clear();
-		Patron p = Worker.fetchPatron(PID);
+		Patron p = PatronList.fetchPatron(PID);
 		return p;
 	}
 	
@@ -66,7 +66,7 @@ public class Manage
 	
 	public Patron getPatronInfo (String PID)
 	{
-		return Worker.fetchPatron(PID);
+		return PatronList.fetchPatron(PID);
 	}
 
 }
